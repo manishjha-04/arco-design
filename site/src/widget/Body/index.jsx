@@ -29,12 +29,20 @@ class Body extends React.PureComponent {
           {getFlattenRoutes(routes).map((item) => {
             const M = item.component;
             const path = getPath(item.module, item.path, lang);
-            return <Route key={path} path={path} render={() => <M lang={lang} />} />;
+            return (
+              <Route key={path} path={path}>
+                {' '}
+                <M lang={lang} />
+              </Route>
+            );
           })}
           <Route exact path="/react" render={() => <Redirect to="/react/docs/start" />} />
           {/* <Redirect from="/docs" to="/docs/spec/introduce" />
           <Redirect from="/docs/spec" to="/docs/spec/introduce" /> */}
-          <Route path="*" component={NotFound} />
+          <Route path="*">
+            {' '}
+            <NotFound />{' '}
+          </Route>
         </Switch>
       </div>
     );
