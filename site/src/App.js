@@ -103,26 +103,11 @@ export default function App() {
       />
       <Navbar.GlobalNotice onHeightChange={setNoticeHeight} lang={lang} />
       <Routes>
-        <Route path="/" exact>
-          {' '}
-          <Home />{' '}
-        </Route>
-        <Route path="/en-US" exact>
-          {' '}
-          <Home />{' '}
-        </Route>
-        <Route path="/showcase/en-US">
-          {' '}
-          <Customer />{' '}
-        </Route>
-        <Route path="/showcase">
-          {' '}
-          <Customer />{' '}
-        </Route>
-        <Route path="*">
-          {' '}
-          <page />{' '}
-        </Route>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/en-US" exact element={<Home />} />
+        <Route path="/showcase/en-US" element={<Customer />} />
+        <Route path="/showcase" element={<Customer />} />
+        <Route path="*" element={<page />} />
       </Routes>
     </div>
   );
