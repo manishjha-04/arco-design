@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { Menu, Tag } from '@arco-design/web-react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import NProgress from 'nprogress';
 import cs from 'classnames';
 import { GlobalNoticeContext } from '../../context';
@@ -30,7 +30,7 @@ function ACMenu(props) {
     return route ? [route.parentKey, ...route.path.split('/')] : [];
   }, []);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setSelectedKeys([pathname]);
@@ -45,7 +45,7 @@ function ACMenu(props) {
     NProgress.start();
     preload.then(() => {
       NProgress.done();
-      history.push(path);
+      navigate(path);
     });
   }
 

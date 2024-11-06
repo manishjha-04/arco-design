@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { Typography, Grid } from '@arco-design/web-react';
 import { IconRight } from '@arco-design/web-react/icon';
@@ -35,7 +35,7 @@ function Overview({ lang = 'zh-CN' }) {
   const title = t.overview;
   const description = t.description;
   const { theme } = useContext(GlobalContext);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const meta = getMeta(lang);
 
@@ -49,7 +49,7 @@ function Overview({ lang = 'zh-CN' }) {
           <div
             className={`${prefixCls}-list-item-inner`}
             onClick={() => {
-              history.push(`/react/components/${underscored(l.key)}`);
+              navigate(`/react/components/${underscored(l.key)}`);
             }}
           >
             <div className={`${prefixCls}-list-item-logo`}>
