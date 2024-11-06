@@ -25,7 +25,7 @@ class Body extends React.PureComponent {
 
     return (
       <div className="ac-content">
-        <Switch>
+        <Routes>
           {getFlattenRoutes(routes).map((item) => {
             const M = item.component;
             const path = getPath(item.module, item.path, lang);
@@ -43,7 +43,7 @@ class Body extends React.PureComponent {
             {' '}
             <NotFound />{' '}
           </Route>
-        </Switch>
+        </Routes>
       </div>
     );
   }

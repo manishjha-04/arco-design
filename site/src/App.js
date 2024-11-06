@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Routes, useHistory } from 'react-router-dom';
 import Navbar from '@arco-materials/site-navbar-new';
 import {
   PageDurationTracker,
@@ -102,7 +102,7 @@ export default function App() {
         }}
       />
       <Navbar.GlobalNotice onHeightChange={setNoticeHeight} lang={lang} />
-      <Switch>
+      <Routes>
         <Route path="/" exact>
           {' '}
           <Home />{' '}
@@ -123,7 +123,7 @@ export default function App() {
           {' '}
           <page />{' '}
         </Route>
-      </Switch>
+      </Routes>
     </div>
   );
 }
