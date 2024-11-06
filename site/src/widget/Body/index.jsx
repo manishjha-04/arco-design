@@ -31,7 +31,7 @@ class Body extends React.PureComponent {
             const path = getPath(item.module, item.path, lang);
             return <Route key={path} path={path} render={() => <M lang={lang} />} />;
           })}
-          <Redirect exact from="/react" to="/react/docs/start" />
+          <Route exact path="/react" render={() => <Redirect to="/react/docs/start" />} />
           {/* <Redirect from="/docs" to="/docs/spec/introduce" />
           <Redirect from="/docs/spec" to="/docs/spec/introduce" /> */}
           <Route path="*" component={NotFound} />
